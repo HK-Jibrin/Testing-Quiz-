@@ -1,5 +1,5 @@
 <template>
-  <div class="quiz-modal">
+  <div class="quiz">
     <div class="answers-container">
       <h3>Thank you for playing!</h3>
       <p>
@@ -30,7 +30,7 @@ export default {
   margin-top: 20px;
   font-size: 1.1em;
   text-align: center;
-  color: #8e91ac;
+  color: whitesmoke;
 }
 .answers-container p span {
   font-weight: bolder;
@@ -38,7 +38,7 @@ export default {
 .buttons {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 100%;
   border: none !important;
   justify-content: center;
@@ -46,11 +46,11 @@ export default {
 }
 .buttons .button {
   margin-top: 10px;
-  width: 100px;
+  width: 50px;
   text-decoration: none;
   text-align: center;
   color: #fff;
-  background: #797eaa;
+  background: #3dc988;
   padding: 15px;
   font-size: 1em;
   border-radius: 20px;

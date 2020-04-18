@@ -1,6 +1,7 @@
 <template>
-  <div class="quiz-modal">
+  <div class="quiz">
     <div class="home-container">
+      <h2 class="ops">WELCOME TO CHARALITES QUIZ GAME</h2>
       <h3>I am a computer litrate? Try out this quiz</h3>
       <p>Select level</p>
       <div class="buttons">
@@ -15,12 +16,20 @@
 <style scoped>
 .home-container {
   padding: 20px;
+   border: 1px solid black;
+   width: 50%;
+   margin-left: 20em;
+   height: 100%;
+   border-radius: 20px;
+   margin-top: 10em;
+   background-color: brown;
+
 }
 .home-container p {
   margin-top: 20px;
   font-size: 1.1em;
   text-align: center;
-  color: #8e91ac;
+  color: white;
 }
 .buttons {
   display: flex;
@@ -42,6 +51,12 @@
   font-size: 1.1em;
 }
 .button:hover {
-  background: #a7aac9;
+  background: limegreen;
 }
+.ops{
+  color: white;
+  font-style: italic;
+}
+
+
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <div v-if="questions.length" class="quiz-modal">
-      <router-link to="/question"></router-link>
+      <router-link to="/">I AM NOT READY</router-link>
       <Progress :numTotal="numTotal" :numCorrect="numCorrect"></Progress>
       <div class="quiz">
         <p v-html="index+1 + '. ' + currentQuestion.question"></p>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="lds-ring">
+    <div class="option">
       <div></div>
       <div></div>
       <div></div>
@@ -29,9 +29,10 @@
 
 <script>
 import Progress from "./Progress.vue";
+import _ from "lodash";
 import { mapGetters } from "vuex";
 export default {
-  name: "Questions",
+  name: "Question",
   components: { Progress },
   props: {
     level: String
@@ -47,7 +48,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("getQuestion", this.level).then(() => {
+    this.$store.dispatch("getQuestions", this.level).then(() => {
       this.questions = this.$store.state.questions;
       this.$store.dispatch("resetDefault");
     });
@@ -55,8 +56,8 @@ export default {
   computed: {
     answers() {
       let answers = [
-        ...this.currentQuestions.incorrect_answers,
-        this.currentQuestions.correct_answer
+        ...this.currentQuestion.incorrect_answers,
+        this.currentQuestion.correct_answer
       ];
       return answers;
     },
@@ -139,6 +140,10 @@ export default {
 </script>
 
 <style scoped>
+.contaier{
+  border-style: solid ;
+  border-width: medium;
+}
 .quiz p {
   font-weight: bold;
   font-size: 1.1em;
@@ -146,6 +151,9 @@ export default {
 .quiz .answers {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin-left: 23%;
+
 }
 .quiz .answers .answer {
   margin-bottom: 10px;
@@ -154,6 +162,7 @@ export default {
 .quiz .actions {
   display: flex;
   justify-content: space-between;
+  
 }
 .quiz .actions button {
   display: inline;
@@ -168,7 +177,9 @@ export default {
   outline: none;
 }
 #submit {
-  background: #637af0;
+  background: #0caf22;
+  margin-right: 49rem ;
+   width: 60em;
 }
 #submit:disabled {
   background: #637af06c !important;
@@ -178,7 +189,9 @@ export default {
   background: #637af0de;
 }
 #next {
-  background: #159827;
+  background: #260ff5;
+   margin-left: 49rem;
+   width: 60em;
 }
 #next:disabled {
   background: #1598264d !important;
@@ -205,7 +218,11 @@ export default {
     justify-content: center;
   }
   #submit {
-    margin-left: 10px;
+    margin-right: 10rem;
+  }
+  .option{
+    border: none;
+    list-style: none;
   }
 }
 </style>

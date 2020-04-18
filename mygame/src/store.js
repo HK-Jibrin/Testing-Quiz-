@@ -28,7 +28,7 @@ const actions = {
   getQuestions({ commit }, level) {
     return axios
       .get(
-       `https://opentdb.com/api.php?amount=10&type=multiple=${level}`
+        `https://opentdb.com/api.php?amount=10&category=18&type=multiple&difficulty=${level}`
       )
       .then(reponse => {
         commit("UPDATE_QUESTIONS", reponse.data.results);

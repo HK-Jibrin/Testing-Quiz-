@@ -17,7 +17,7 @@ Vue.use(VueRouter)
     redirect: 'questions',
   },
   {
-    path: "/question/:quiz-modal",
+    path: "/question/:level",
     component: Question,
     props: true,
     beforeEnter: (to, from, next) => {
